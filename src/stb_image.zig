@@ -22,6 +22,10 @@ pub const Image = struct {
     }
 };
 
+pub fn set_flip_vertically_on_load(flag: u32) void {
+    c.stbi_set_flip_vertically_on_load(@intCast(flag));
+}
+
 /// Load an image from a file
 pub fn load_image(filename: []const u8, nchannels: ?i32) !Image {
     var img = Image{ .nchan = nchannels orelse 3 };
